@@ -1,0 +1,9 @@
+Mitgliedsantrag Freiwillige Feuerwehr Beispielstadt
+
+Name:
+Adresse:
+Telefon:
+E-Mail:
+Geburtsdatum:
+
+Hinweis: Dies ist eine Platzhalterdatei und muss durch ein offizielles Formular ersetzt werden.
