@@ -16,16 +16,27 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  const setNavOpen = (open) => {
+    nav?.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
+    navToggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle?.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  };
+
   navToggle?.addEventListener('click', () => {
-    const open = nav?.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    navToggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    setNavOpen(!nav?.classList.contains('open'));
   });
 
   nav?.addEventListener('click', event => {
     if (event.target.matches('a')) {
-      nav.classList.remove('open');
-      navToggle?.setAttribute('aria-expanded', 'false');
+      setNavOpen(false);
+    }
+  });
+
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && nav?.classList.contains('open')) {
+      setNavOpen(false);
     }
   });
 

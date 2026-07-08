@@ -260,3 +260,17 @@ Bei Verwendung für reale Organisationen müssen Inhalt, Rechtliches, Sicherheit
 **Feuerwehr Beispielstadt** ist eine fiktive, virtuelle Feuerwehrwache.  
 Das Projekt zeigt Struktur, Gestaltung und Grundfunktionen einer Feuerwehrseite.  
 Für echte Veröffentlichung ist es ohne professionelle Anpassungen **nicht geeignet**.
+
+
+## Mobile-Navigation-Fix
+
+Diese Version basiert auf dem vom Nutzer hochgeladenen aktuellen ZIP-Stand `Feuerwehr-Beispielstadt-main.zip`.
+
+Korrigiert wurde das mobile Menü:
+
+- Menü öffnet jetzt als Vollbild-Offcanvas unterhalb des Headers.
+- Kein seitlicher Überstand mehr.
+- Keine horizontale Scrollbar mehr.
+- Inhalt wird beim geöffneten Menü nicht mehr nach links/rechts überlagert.
+- Body-Scroll wird während geöffnetem Menü gesperrt.
+- Schließen per Menübutton, Link-Klick oder Escape-Taste.

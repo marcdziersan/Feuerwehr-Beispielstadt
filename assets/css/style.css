@@ -492,3 +492,115 @@ html, body{overflow-x:hidden;}
   border-radius:18px;
   padding:14px;
 }
+
+
+
+/* ==========================================================
+   MOBILE NAVIGATION FIX
+   Grundlage: aktueller ZIP-Stand des Nutzers
+   Problem: Menü lag seitlich über dem Content / außerhalb des Viewports.
+   Lösung: echtes Vollbild-Offcanvas-Menü auf Mobile.
+   ========================================================== */
+
+@media (max-width:980px){
+  html,
+  body{
+    overflow-x:hidden;
+  }
+
+  .site-header{
+    overflow:visible;
+    z-index:999;
+  }
+
+  .header-inner{
+    position:relative;
+    z-index:1001;
+  }
+
+  .nav-toggle{
+    display:grid;
+    position:relative;
+    z-index:1003;
+  }
+
+  .main-nav{
+    position:fixed;
+    top:var(--header);
+    left:0;
+    right:0;
+    bottom:0;
+    width:100vw;
+    max-width:none;
+    height:calc(100dvh - var(--header));
+    margin:0;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    gap:8px;
+    background:
+      radial-gradient(circle at 12% 0%, rgba(227,27,53,.18), transparent 32%),
+      linear-gradient(180deg, rgba(13,18,28,.98), rgba(8,10,15,.98));
+    border:0;
+    border-top:1px solid var(--line);
+    border-radius:0;
+    box-shadow:0 28px 80px rgba(0,0,0,.48);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    transform:translateX(100%);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:
+      transform .28s ease,
+      opacity .22s ease,
+      visibility .22s ease;
+    z-index:1000;
+  }
+
+  .main-nav.open{
+    transform:translateX(0);
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    display:flex;
+  }
+
+  .main-nav a{
+    width:100%;
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    padding:13px 16px;
+    border-radius:16px;
+    font-size:1.05rem;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+  }
+
+  .main-nav a:hover,
+  .main-nav a.active,
+  .main-nav a[aria-current="page"]{
+    background:linear-gradient(90deg, rgba(227,27,53,.34), rgba(57,169,255,.16));
+    color:#fff;
+  }
+
+  body.nav-open{
+    overflow:hidden;
+    touch-action:none;
+  }
+}
+
+@media (max-width:640px){
+  .main-nav{
+    padding:14px;
+  }
+
+  .main-nav a{
+    font-size:1rem;
+    min-height:46px;
+  }
+}
